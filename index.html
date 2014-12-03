@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Leaflet.WeatherIconsLayer example</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css"/>
+
+    <style>
+        html, body, #map {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div id="map"></div>
+
+<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+<script src="http://cdn.rawgit.com/bright/Leaflet.WeatherIconsLayer/master/src/leaflet-weathericonslayer.js"></script>
+<script>
+    var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        name: 'osm',
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    });
+
+    var map = L.map('map', {
+        layers: osm,
+        center: [48.82, 14.32],
+        zoom: 5
+    });
+
+    var weather = new L.WeatherIconsLayer();
+    map.addLayer(weather);
+
+    L.control.layers(null, { Weather: weather }).addTo(map);
+</script>
+</body>
+</html>
