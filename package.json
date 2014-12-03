@@ -1,0 +1,20 @@
+{
+  "name": "leaflet-weathericonslayer",
+  "version": "0.0.1",
+  "description": "Current weather icons layer for Leaflet, based on OpenWeatherMap API",
+  "main": "src/leaflet-weathericonslayer.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bright/Leaflet.WeatherIconsLayer.git"
+  },
+  "keywords": [
+    "openweathermap",
+    "leaflet",
+    "weather"
+  ],
+  "license": "CC BY-SA 2.0",
+  "bugs": {
+    "url": "https://github.com/bright/Leaflet.WeatherIconsLayer/issues"
+  },
+  "homepage": "https://github.com/bright/Leaflet.WeatherIconsLayer"
+}
