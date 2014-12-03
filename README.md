@@ -6,6 +6,14 @@ Partial rework of [outdated sample script](http://openweathermap.org/js/leaflet-
 
 As an OpenWeatherMap derivative work, licenced with [Creative Commons BY-SA 2.0](http://creativecommons.org/licenses/by-sa/2.0/). OpenWeatherMap [Terms of service](http://openweathermap.org/terms) apply.
 
+See **[live example](http://bright.github.io/Leaflet.WeatherIconsLayer)**.
+
+Installation
+------------
+
+ * NPM: `npm install leaflet-weathericonslayer`
+ * Bower: `bower install leaflet-weathericonslayer`
+
 Usage
 -----
 
