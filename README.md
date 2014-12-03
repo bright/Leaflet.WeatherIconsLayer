@@ -14,9 +14,10 @@ Usage
 Also, several options available. Here are the defaults shown:
 
     map.addLayer(new L.WeatherIconsLayer({
-        host: 'http://openweathermap.org/',   // API host
-        i18n: {...},                          // object with translation strings, see code
-        units: 'metric',                      // or 'imperial'; temperature scale
-        temperatureDigits: 0,                 // how many decimal digits in temperature
-        maxAgeSeconds: 24*60*60,              // 24h; how long the weather data is considered worth showing
+        apiKey: undefined,                  // OpenWeatherMap API key
+        host: 'http://openweathermap.org/', // API host
+        i18n: {...},                        // object with translation strings, see code
+        units: 'metric',                    // or 'imperial'; temperature scale
+        temperatureDigits: 0,               // how many decimal digits in temperature
+        maxAgeSeconds: 24*60*60,            // 24h; how long the weather data is considered worth showing
     }));

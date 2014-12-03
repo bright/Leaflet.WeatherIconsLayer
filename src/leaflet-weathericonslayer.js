@@ -52,7 +52,7 @@
 
             var host = this.options.host || 'http://openweathermap.org';
 
-            this.sourceUrl = host + '/data/2.5/box/city?bbox={bbox},{zoom}&units=' + (this.options.units || 'metric');
+            this.sourceUrl = host + '/data/2.5/box/city?bbox={bbox},{zoom}&units=' + (this.options.units || 'metric') + '&APPID=' + this.options.apiKey;
             this.i18n = this.options.i18n || this.defaultI18n;
 
             this.options.temperatureDigits = this.options.temperatureDigits || 0;
@@ -140,13 +140,13 @@
             popupContent += '<h3>' + stationData.name + '</h3>';
             popupContent += '<p>' + weatherText + '</p>';
             popupContent += '<p>';
-            popupContent += this.i18n.temperature + ':&nbsp;' + this.formatTemperature(stationData.main.temp) + '&nbsp;°C<br />';
+            popupContent += this.i18n.temperature + ':&nbsp;' + this.formatTemperature(stationData.main.temp) + '°C<br />';
 
             if (stationData.main.temp_max) {
-                popupContent += this.i18n.maximumTemperature + ':&nbsp;' + this.formatTemperature(stationData.main.temp_max) + '&nbsp;°C<br />';
+                popupContent += this.i18n.maximumTemperature + ':&nbsp;' + this.formatTemperature(stationData.main.temp_max) + '°C<br />';
             }
             if (stationData.main.temp_min) {
-                popupContent += this.i18n.minimumTemperature + ':&nbsp;' + this.formatTemperature(stationData.main.temp_min) + '&nbsp;°C<br />';
+                popupContent += this.i18n.minimumTemperature + ':&nbsp;' + this.formatTemperature(stationData.main.temp_min) + '°C<br />';
             }
             if (stationData.main.humidity) {
                 popupContent += '' + this.i18n.humidity + ':&nbsp;' + stationData.main.humidity + '%<br />';
