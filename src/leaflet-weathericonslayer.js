@@ -16,10 +16,10 @@
             var div, span;
             div = document.createElement('div');
             div.className = 'leaflet-marker-icon weather-icon';
-            div.style.margin = '-30px 0px 0px -30px';
+            div.style.margin = '-30px 0 0 -30px';
             div.style.width = '60px';
             div.style.height = '20px';
-            div.style.padding = '' + this.options.textOffset + 'px 0px 0px 0px';
+            div.style.padding = '' + this.options.textOffset + 'px 0 0 0';
             div.style.background = 'url(' + this.options.image + ') no-repeat center top';
             div.style.textAlign = 'center';
             span = document.createElement('span');
@@ -65,19 +65,14 @@
                 this.iconMap = [
                     {
                         range: function (i) {
-                            return i <= 8 && i !== 4;
+                            return [1, 2, 3, 4, 9, 10, 11, 13, 50].indexOf(i) !== -1;
                         },
-                        pattern: host + '/images/icons60/{full}.png'
-                    },
-                    {
-                        id: 50,
                         pattern: host + '/img/w/{full}.png'
-                    },
-                    host + '/images/icons60/{numeric}.png'
+                    }
                 ];
             }
 
-            this.iconMap.transparentUrl = this.iconMap.transparentUrl || host + '/images/icons60/transparent.png';
+            this.iconMap.transparentUrl = this.iconMap.transparentUrl || 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
         },
 
         onAdd: function (map) {
@@ -136,7 +131,7 @@
             var weatherIcon = this.weatherIcon(stationData);
 
             var popupContent = '<div class="weather-place">';
-            popupContent += '<img height="38" width="45" style="border: none; float: right;" alt="' + weatherText + '" src="' + weatherIcon + '" />';
+            popupContent += '<img height="50" width="50" style="border: none; float: right;" alt="' + weatherText + '" src="' + weatherIcon + '" />';
             popupContent += '<h3>' + stationData.name + '</h3>';
             popupContent += '<p>' + weatherText + '</p>';
             popupContent += '<p>';
@@ -177,14 +172,13 @@
 
         weatherIcon: function (stationData) {
             var icon = stationData.weather[0].icon;
-            var numeric = icon.substr(0, 2);
-            var parsed = parseInt(numeric);
+            var parsed = parseInt(icon.substr(0, 2));
 
             for (var i = 0; i < this.iconMap.length; ++i) {
                 var definition = this.iconMap[i];
                 if (Layer.Utils.checkIconPatternMatch(definition, parsed)) {
                     var pattern = definition.pattern || definition;
-                    return pattern.replace('{full}', icon).replace('{numeric}', numeric);
+                    return pattern.replace('{full}', icon);
                 }
             }
 
